@@ -67,7 +67,7 @@ public class Cultist2 extends AbstractMonster {
 
     public Cultist2(float x, float y, boolean talk) {
         super(NAME, "Cultist", 54, -8.0F, 10.0F, 230.0F, 240.0F, (String)null, x, y);
-        this.firstMove = true;
+        this.firstMove = false;
         this.saidPower = false;
         this.ritualAmount = 0;
         this.talky = true;
