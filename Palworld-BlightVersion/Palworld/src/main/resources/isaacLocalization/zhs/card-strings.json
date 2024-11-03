@@ -1,0 +1,124 @@
+{
+
+  "Bomb": {
+    "NAME": "全军出击",
+    "DESCRIPTION": "令所有帕鲁执行一次当前意图。  NL 消耗。",
+    "UPGRADE_DESCRIPTION": "令所有帕鲁执行一次当前意图. NL 消耗。"
+  },
+  "Virus": {
+    "NAME": "病毒",
+    "DESCRIPTION": "回合结束时，最左侧的手牌变为本牌的复制",
+    "UPGRADE_DESCRIPTION": "回合结束时，本牌右侧的手牌变为本牌的复制。"
+  },
+  "PalAnger": {
+    "NAME": "帕鲁之怒",
+    "DESCRIPTION": "所有帕鲁本回合伤害翻倍。  NL 消耗。"
+  },
+  "Pills": {
+    "NAME": "高级药剂",
+    "DESCRIPTION": "清除目标帕鲁身上的所有debuff  NL 消耗"
+  },
+  "Full_Protect": {
+    "NAME": "援护",
+    "DESCRIPTION": "将自己护甲全部给予这个帕鲁，然后其获得 !M! 层残影 ",
+    "UPGRADE_DESCRIPTION": "将自己护甲全部给予这个帕鲁，然后其获得 !M! 层残影"
+  },
+  "ChaoFengStrike": {
+    "NAME": "赌上你的灵魂",
+    "DESCRIPTION": "获得8点力量，你的角色变成故障机器人 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，并且施加3层嘲讽 "
+  },
+  "Baling": {
+    "NAME": "霸凌",
+    "DESCRIPTION": "抽到状态牌时，获得 !M! 点力量",
+    "UPGRADE_DESCRIPTION": "抽到状态牌时，获得 !M! 点力量"
+  },
+  "Tongbu": {
+    "NAME": "同步",
+    "DESCRIPTION": "获得等同于目标力量的力量",
+    "UPGRADE_DESCRIPTION": "目标获得3点力量，获得等同于目标力量的力量"
+  },
+  "TogetherCard": {
+    "NAME": "集合",
+    "DESCRIPTION": "帕鲁行动时，抽 !M! 张牌,保留帕鲁数量的牌",
+    "UPGRADE_DESCRIPTION": "帕鲁行动时，抽 !M! 张牌,保留帕鲁数量的牌"
+  },
+  "HuDun": {
+    "NAME": "护盾术",
+    "DESCRIPTION": "给予目标 !B! 点格挡",
+    "UPGRADE_DESCRIPTION": "给予目标 !B! 点格挡"
+  },
+  "XiSheng": {
+    "NAME": "牺牲",
+    "DESCRIPTION": "失去 !M! 点生命，所有帕鲁获得 !M! 点力量",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点生命，所有帕鲁获得 !M! 点力量"
+  },
+  "XianXueQIYue": {
+    "NAME": "鲜血契约",
+    "DESCRIPTION": "当你失去生命时，所有帕鲁增加 !M! 点血量上限",
+    "UPGRADE_DESCRIPTION": "当你失去生命时，所有帕鲁增加 !M! 点血量上限"
+  },
+  "Fangxue": {
+    "NAME": "放帕鲁的血",
+    "DESCRIPTION": "目标帕鲁失去 !M! 点生命，获得 [E] [E] [E] (对敌人无效)",
+    "UPGRADE_DESCRIPTION": "目标帕鲁失去 !M! 点生命，获得 [E] [E] [E] (对敌人无效)"
+  },
+  "KuaiSuXIngDong": {
+    "NAME": "快速行动",
+    "DESCRIPTION": "你每有一只帕鲁，抽一张牌",
+    "UPGRADE_DESCRIPTION": "你每有一只帕鲁，抽一张牌 NL #y保留 "
+  },
+  "MoFangZhe": {
+    "NAME": "模仿者",
+    "DESCRIPTION": "创建一个目标的我方复制品，带有2层消逝 NL 消耗",
+    "UPGRADE_DESCRIPTION": "创建一个目标的我方复制品，带有2层消逝 NL 消耗 "
+  },
+  "YuXiang": {
+    "NAME": "帕鲁余像",
+    "DESCRIPTION": "当你打出技能牌时，所有牌获得 !M! 点格挡",
+    "UPGRADE_DESCRIPTION": "当你打出技能牌时，所有牌获得 !M! 点格挡  NL 固有 "
+  },
+  "RongHe": {
+    "NAME": "融合",
+    "DESCRIPTION": "击杀一只帕鲁，其他帕鲁平分其血量上限 NL 消耗",
+    "UPGRADE_DESCRIPTION": "击杀一只帕鲁，其他帕鲁平分其血量上限 NL 消耗"
+  },
+  "YouLingShiYan": {
+    "NAME": "幽灵实验",
+    "DESCRIPTION": "目标帕鲁获得 !M! 层无实体，但是其5回合后死亡 NL 消耗",
+    "UPGRADE_DESCRIPTION": "目标帕鲁获得 !M! 层无实体，但是其5回合后死亡 NL 消耗"
+  },
+  "TuDu": {
+    "NAME": "给帕鲁涂毒",
+    "DESCRIPTION": "目标帕鲁获得 !M! 层涂毒和 !M! 层中毒",
+    "UPGRADE_DESCRIPTION": "目标帕鲁获得 !M! 层涂毒和 !M! 层中毒"
+  },
+  "Rocket_Bomb": {
+    "NAME": "火箭弹",
+    "DESCRIPTION": "将帕鲁发射出去，对所有敌人造成等同于其血量的伤害，然后其死亡 "
+
+  },
+  "Skill_fruit": {
+    "NAME": "技能果实",
+    "DESCRIPTION": "给帕鲁随机3层buff"
+  },
+  "Encourage": {
+    "NAME": "鼓舞",
+    "DESCRIPTION": "给所有帕鲁+3力，+15护甲  NL 消耗。",
+    "UPGRADE_DESCRIPTION": "给所有帕鲁5力，+25护甲。 NL 消耗。"
+  },
+  "Cancel": {
+    "NAME": "瞄准",
+    "DESCRIPTION": "帕鲁将优先攻击这个敌人。"
+  },
+
+  "PokeBall": {
+    "NAME": "帕鲁球",
+    "DESCRIPTION": "捕捉20%血量以下的怪物  NL 虚无。 NL  消耗。"
+  },
+  "PokeGOGO": {
+    "NAME": "出来作战吧!",
+    "DESCRIPTION": "召唤一只帕鲁。 NL 虚无 NL 消耗"
+  }
+
+}

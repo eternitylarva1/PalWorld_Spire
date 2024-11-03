@@ -1,0 +1,160 @@
+{
+  "BlankCardPower": {
+    "NAME": "白卡",
+    "DESCRIPTIONS": [
+      "每回合开始打出",
+      "张[",
+      "]。",
+      "未指定卡牌"
+    ]
+  },
+  "DecreaseDamagePower": {
+    "NAME": "减伤buff",
+    "DESCRIPTIONS": [
+      "每次攻击增加减伤(1%)，本次只受到",
+      "%的伤害。（最低50%）"
+    ]
+  },
+  "chaofeng": {
+    "NAME": "嘲讽",
+    "DESCRIPTIONS": [
+      "接下来的",
+      "回合内，会被优先攻击"
+    ]
+  },
+  "After Image1": {
+    "NAME": "帕鲁余像",
+    "DESCRIPTIONS": [
+      "你每打出一张技能牌，其获得",
+      "点格挡"
+    ]
+  },
+  "XianXueQiYue": {
+  "NAME": "献血契约",
+  "DESCRIPTIONS": [
+    "当你失去生命时，所有帕鲁获得",
+    "点血量上限"
+  ]
+},
+  "Together": {
+    "NAME": "集合",
+    "DESCRIPTIONS": [
+      "帕鲁行动时，抽",
+      "张牌,保留帕鲁数量的牌"
+    ]
+  },
+  "DoctorFetusPower": {
+    "NAME": "婴儿博士",
+    "DESCRIPTIONS": [
+      "每回合开始获得",
+      "张[快爆炸弹]"
+    ]
+  },
+  "ElectroPower": {
+    "NAME": "电力洞穴",
+    "DESCRIPTIONS": [
+      "闪电球将攻击所有敌人，如果只有一个敌人，闪电球将攻击",
+      "次。"
+    ]
+  },
+  "EpicFetusPower": {
+    "NAME": "史诗婴儿",
+    "DESCRIPTIONS": [
+      "每回合开始获得",
+      "张[史诗攻击]。"
+    ]
+  },
+  "LonelyPower": {
+    "NAME": "孑然一人",
+    "DESCRIPTIONS": [
+      "在回合结束房间内只剩自己时，对自己造成666伤害"
+    ]
+  },
+  "NineLifeCatPower": {
+    "NAME": "九命猫buff",
+    "DESCRIPTIONS": [
+      "九命猫：“喵~你还有",
+      "条命。”"
+    ]
+  },
+  "PowerDownPower": {
+    "NAME": "力竭",
+    "DESCRIPTIONS": [
+      "每3回合，在回合开始时所有增益状态丢失一层。(机器人部分能力免疫)"
+    ]
+  },
+  "ShuaLaiPower": {
+    "NAME": "耍赖",
+    "DESCRIPTIONS": [
+      "受到的攻击有50%的概率会失效"
+    ]
+  },
+  "GuppysCollarPower": {
+    "NAME": "猫圈buff",
+    "DESCRIPTIONS": [
+      "死亡时有60%的概率一血复活。"
+    ]
+  },
+  "UpPower": {
+    "NAME": "凸",
+    "DESCRIPTIONS": [
+      "额外受到",
+      "%的伤害。"
+    ]
+  },
+  "DownPower": {
+    "NAME": "凹",
+    "DESCRIPTIONS": [
+      "不会受到伤害。"
+    ]
+  },
+  "ConceitedPower": {
+    "NAME": "自负",
+    "DESCRIPTIONS": [
+      "你觉得打萌死戳不用发挥全力。"
+    ]
+  },
+  "MoreDamagePower": {
+    "NAME": "打我！",
+    "DESCRIPTIONS": [
+      "破甲造成的伤害变成原来的",
+      "倍。"
+    ]
+  },
+  "JudasShadowPower": {
+    "NAME": "犹大之影",
+    "DESCRIPTIONS": [
+      "你能复活成犹大之影。"
+    ]
+  },
+  "MonstroPower": {
+    "NAME": "萌死戳",
+    "DESCRIPTIONS": [
+      "每被攻击三次，在本回合失去一点力量。"
+    ]
+  },
+  "DeliriousPower": {
+    "NAME": "精神错乱",
+    "DESCRIPTIONS": [
+      "再受到",
+      "次攻击后，将直接按照当前意图行动一次，并对自己施加一层“自残”。在失去",
+      "血量后，再受到",
+      "次攻击将会随机变成其他怪物。"
+    ]
+  },
+  "ImpatiencePower": {
+    "NAME": "急躁",
+    "DESCRIPTIONS": [
+      "打出",
+      "张牌后，将直接按照当前意图行动一次。可以被精神错乱BUFF重置。"
+    ]
+  },
+  "DamageSelf": {
+    "NAME": "自残",
+    "DESCRIPTIONS": [
+      "累加到",
+      "层后对自己造成",
+      "点伤害。"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "Bomb": {
+    "NAME": "All-Out Attack",
+    "DESCRIPTION": "All Parus perform their current intent once. NL Consume.",
+    "UPGRADE_DESCRIPTION": "All Parus perform their current intent once. NL Consume."
+  },
+  "Virus": {
+    "NAME": "Virus",
+    "DESCRIPTION": "At the end of the turn, the leftmost card in hand becomes a copy of this card.",
+    "UPGRADE_DESCRIPTION": "At the end of the turn, the card to the right of this card in hand becomes a copy of this card."
+  },
+  "PalAnger": {
+    "NAME": "Palu's Wrath",
+    "DESCRIPTION": "All Parus deal double damage this turn. NL Consume."
+  },
+  "Encourage": {
+    "NAME": "Encourage",
+    "DESCRIPTION": "Give all Parus +3 Strength and +15 Armor. NL Consume.",
+    "UPGRADE_DESCRIPTION": "Give all Parus +5 Strength and +25 Armor. NL Consume."
+  },
+  "Pills": {
+    "NAME": "高级药剂",
+    "DESCRIPTION": "clear 目标pal's 身上的所有 debuffs  NL 消耗"
+  },
+  "Full_Protect": {
+    "NAME": "Full_Protect",
+    "DESCRIPTION": "将自己护甲全部给予这个帕鲁，然后其获得 !M! 层残影 ",
+    "UPGRADE_DESCRIPTION": "将自己护甲全部给予这个帕鲁，然后其获得 !M! 层残影"
+  },
+  "Rocket_Bomb": {
+    "NAME": "火箭弹",
+    "DESCRIPTION": "将帕鲁发射出去，对所有敌人造成等同于其血量的伤害，然后其死亡 "
+
+  },
+  "Cancel": {
+    "NAME": "Aim",
+    "DESCRIPTION": "Parus will prioritize attacking this enemy."
+  },
+  "PokeBall": {
+    "NAME": "Paru Ball",
+    "DESCRIPTION": "Capture monsters below 20% health. NL Void. NL Consume."
+  },
+  "PokeGOGO": {
+    "NAME": "Go Fight!",
+    "DESCRIPTION": "Summon a Paru. NL Void. NL Consume."
+  }
+}

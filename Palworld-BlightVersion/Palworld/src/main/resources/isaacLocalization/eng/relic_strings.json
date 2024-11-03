@@ -1,0 +1,150 @@
+{
+  "PalHudun": {
+    "NAME": "Top-tier Shield",
+    "FLAVOR": "A raging fire burned all research materials, giving birth to the highest quality shield.",
+    "DESCRIPTIONS": [
+      "When picked up, research level resets. Monsters will prioritize attacking your Parus."
+    ]
+  },
+  "KonoKeeper": {
+    "NAME": "I'm the Boss",
+    "FLAVOR": "kono Keeper!",
+    "DESCRIPTIONS": [
+      "When entering a normal monster room, there is a #b15% chance to turn the current room into a shop."
+    ]
+  },
+  "Randommonster": {
+    "NAME": "Random Mimicker",
+    "FLAVOR": "The Random Mimicker recalls a unique encounter with zombies. Unlike others who rely on Peashooters and Jalapeños, he trusts in his unique ability to randomly generate enemies or allies.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, summon a random friendly monster and a random enemy monster."
+    ]
+  },
+  "Yuzaohu": {
+    "NAME": "Cute Fox",
+    "FLAVOR": "The idol of the Palos Islands. Anyone who dares to bully CuteFox will become a public enemy in the blink of an eye.",
+    "DESCRIPTIONS": [
+      "When defeating elites or bosses, there is a 50% chance to drop a Pal Ball"
+    ]
+  },
+  "BattleBell": {
+    "NAME": "BattleBell",
+    "FLAVOR": "战斗，爽!",
+    "DESCRIPTIONS": [
+      "Enemies get random Powers"
+    ]
+  },
+
+  "PokeBall_BluePrint": {
+    "NAME": "Palu Ball Manufacturing Blueprint",
+    "FLAVOR": "The cost of Palu is determined by how many Palu Balls it takes, with a regular Palu Ball costing one Palu Ore + three Wood + three Stone. If the materials produced by a Palu's work cannot exceed several times his cost, then the work intensity must be increased.",
+    "DESCRIPTIONS": [
+      "Manufacturing Palu Balls requires half the usual gold coins"
+    ]
+  },
+  "PalBed": {
+    "NAME": "Advanced Palu Bed",
+    "FLAVOR": "A large bed used by Palu for a good sleep. Available for Palu to rest during injuries or at night. Even a large Palu can have a good sleep on this big bed.",
+    "DESCRIPTIONS": [
+      "While Palu rests, an additional 15 health is restored"
+    ]
+  },
+  "CYSDX": {
+    "NAME": "Emerald Leaf Rat Statue",
+    "FLAVOR": "An incredible Pal statue, ubiquitous throughout the Pal Islands. Offering items to a certain statue allows for player empowerment.",
+    "DESCRIPTIONS": [
+      "When summoning Pal, the player gains one Strength."
+    ]
+  },
+  "YEMEI":{
+    "NAME": "Wild Berry",
+    "FLAVOR": "A versatile ingredient that is delicious whether eaten raw or roasted. It can be seen everywhere on the island.",
+    "DESCRIPTIONS":[
+      "When picking up, all PAL's increase in health by 15"
+    ]
+  },
+  "D6": {
+    "NAME": "Paru Ball Upgrade Device",
+    "FLAVOR": "Excellent performance, widely praised.",
+    "DESCRIPTIONS": [
+      "Make your existing Paru Ball have a 100% capture success rate (for debugging purposes, will not appear in normal gameplay)."
+    ]
+  },
+  "DeathBook": {
+    "NAME": "Swarm Bell",
+    "FLAVOR": "It is said to have come from a very cold area.",
+    "DESCRIPTIONS": [
+      "Starting from Act 2, gain [E] at the beginning of battles. Monsters will travel with monsters of the same level as the previous act. (For those who want a challenge)"
+    ]
+  },
+  "TechnologyTree": {
+    "NAME": "Testing Tool",
+    "FLAVOR": "Just a testing tool, please do not obtain in normal gameplay?",
+    "DESCRIPTIONS": [
+      "Mouse over relics to see current technology. You can develop technology at the campfire."
+    ]
+  },
+  "D4": {
+    "NAME": "Paru Shield",
+    "FLAVOR": "An incredible shield made by Paru Mine Technology!",
+    "DESCRIPTIONS": [
+      "When summoning a Paru, gain 2 points of temporary armor."
+    ]
+  },
+  "PunchingBag": {
+    "NAME": "Queen Bee's Staff",
+    "FLAVOR": "The modified Queen Bee's staff, specially made for human use. NL Can feel the queen's majesty exposed.",
+    "DESCRIPTIONS": [
+      "Right-click to get an Aim+ card, Parus will prioritize attacking the targeted enemy."
+    ]
+  },
+  "PokeGo": {
+    "NAME": "Paru Ball",
+    "FLAVOR": "Low health, catch it quickly.",
+    "DESCRIPTIONS": [
+      "Right-click to get a Paru Ball (costs 1 energy). NL The lower the health, the higher the capture rate. NL Each Paru Ball can control up to one Paru (replaceable)."
+    ]
+  },
+  "BFFS": {
+    "NAME": "Power Stone Statue",
+    "FLAVOR": "A stone statue mentioned in the legend of Paros Island. Offer the Emerald Rat statue to the statue to gain incredible power.",
+    "DESCRIPTIONS": [
+      "All your Parus start with 3 Strength."
+    ]
+  },
+  "Void": {
+    "NAME": "Void",
+    "FLAVOR": "Suck! Just suck!",
+    "DESCRIPTIONS": [
+      "6 charges. Right-click during even charges to absorb a relic from the relic list once, adding 1 charge (cannot absorb Blossoming Mark, passive relics get random initial attributes, active relics get active effects, when fully charged, trigger all absorbed active relic effects)."
+    ]
+  },
+  "Habit": {
+    "NAME": "Cricket Fighter Modifier",
+    "FLAVOR": "Cricket Fighter Modifier",
+    "DESCRIPTIONS": [
+      "Enhance the strength of card-carrying monsters in Cricket Fighter, adjust the technology level to 2, and remove all entries (for debugging purposes, will not appear in normal gameplay)."
+    ]
+  },
+  "BloodBag": {
+    "NAME": "Survival Guide",
+    "FLAVOR": "Defeat all high tower bosses in each area and become the strongest Paru Trainer!",
+    "DESCRIPTIONS": [
+      "Right-click on this relic in battle to view the tutorial."
+    ]
+  },
+  "Qieroudao": {
+    "NAME": "Meat Cleaver",
+    "FLAVOR": "Pork belly!",
+    "DESCRIPTIONS": [
+      "You can dismember Parus at the campfire to obtain resources."
+    ]
+  },
+  "NineVolt": {
+    "NAME": "Merit",
+    "FLAVOR": "Knocking on the electronic fish, accumulating cyber-merit, seeing Hatsune Miku.",
+    "DESCRIPTIONS": [
+      "At the start of the battle, for each point of merit, there is a 1% increase in the chance of monsters fleeing."
+    ]
+  }
+}

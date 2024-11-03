@@ -1,0 +1,104 @@
+
+skeleton.png
+size: 631,92
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armleft
+  rotate: false
+  xy: 563, 2
+  size: 33, 61
+  orig: 33, 78
+  offset: 0, 5
+  index: -1
+armright
+  rotate: false
+  xy: 544, 65
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+cloakbackblue
+  rotate: false
+  xy: 366, 6
+  size: 64, 46
+  orig: 64, 47
+  offset: 0, 0
+  index: -1
+cloakblue
+  rotate: true
+  xy: 2, 2
+  size: 88, 152
+  orig: 88, 153
+  offset: 0, 0
+  index: -1
+eyeblue
+  rotate: true
+  xy: 240, 14
+  size: 9, 6
+  orig: 9, 6
+  offset: 0, 0
+  index: -1
+eyelidblue
+  rotate: false
+  xy: 228, 4
+  size: 13, 7
+  orig: 13, 7
+  offset: 0, 0
+  index: -1
+headblue
+  rotate: true
+  xy: 432, 4
+  size: 48, 61
+  orig: 89, 88
+  offset: 24, 2
+  index: -1
+hoodblue
+  rotate: true
+  xy: 495, 19
+  size: 41, 66
+  orig: 41, 66
+  offset: 0, 0
+  index: -1
+jaw
+  rotate: false
+  xy: 228, 13
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+legleft
+  rotate: true
+  xy: 458, 62
+  size: 28, 84
+  orig: 28, 85
+  offset: 0, 0
+  index: -1
+legright
+  rotate: true
+  xy: 156, 3
+  size: 20, 70
+  orig: 22, 71
+  offset: 2, 0
+  index: -1
+shadowblue
+  rotate: false
+  xy: 156, 25
+  size: 208, 27
+  orig: 225, 29
+  offset: 16, 1
+  index: -1
+shoulderred
+  rotate: false
+  xy: 598, 28
+  size: 31, 62
+  orig: 31, 62
+  offset: 0, 0
+  index: -1
+weaponblue
+  rotate: false
+  xy: 156, 54
+  size: 300, 36
+  orig: 304, 123
+  offset: 2, 56
+  index: -1

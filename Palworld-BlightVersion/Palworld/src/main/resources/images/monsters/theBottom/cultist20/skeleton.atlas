@@ -1,0 +1,118 @@
+
+skeleton.png
+size: 537,173
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/armleft
+  rotate: true
+  xy: 471, 32
+  size: 67, 64
+  orig: 67, 64
+  offset: 0, 0
+  index: -1
+images/armright
+  rotate: false
+  xy: 364, 38
+  size: 70, 36
+  orig: 70, 36
+  offset: 0, 0
+  index: -1
+images/bandage
+  rotate: false
+  xy: 455, 47
+  size: 14, 15
+  orig: 16, 17
+  offset: 1, 1
+  index: -1
+images/bandageflap
+  rotate: false
+  xy: 445, 101
+  size: 32, 12
+  orig: 32, 12
+  offset: 0, 0
+  index: -1
+images/body
+  rotate: true
+  xy: 2, 3
+  size: 168, 147
+  orig: 172, 185
+  offset: 4, 5
+  index: -1
+images/fingersleft
+  rotate: false
+  xy: 436, 39
+  size: 17, 23
+  orig: 18, 24
+  offset: 0, 0
+  index: -1
+images/fingersright
+  rotate: true
+  xy: 436, 64
+  size: 23, 22
+  orig: 24, 22
+  offset: 1, 0
+  index: -1
+images/head
+  rotate: false
+  xy: 342, 76
+  size: 75, 95
+  orig: 75, 120
+  offset: 0, 25
+  index: -1
+images/leftwing
+  rotate: false
+  xy: 248, 69
+  size: 92, 102
+  orig: 92, 102
+  offset: 0, 0
+  index: -1
+images/legleft
+  rotate: true
+  xy: 151, 2
+  size: 19, 79
+  orig: 20, 79
+  offset: 0, 0
+  index: -1
+images/legright
+  rotate: true
+  xy: 232, 2
+  size: 19, 50
+  orig: 19, 50
+  offset: 0, 0
+  index: -1
+images/rightwing
+  rotate: true
+  xy: 151, 23
+  size: 148, 95
+  orig: 148, 102
+  offset: 0, 0
+  index: -1
+images/shadow
+  rotate: false
+  xy: 284, 3
+  size: 200, 21
+  orig: 200, 21
+  offset: 0, 0
+  index: -1
+images/shoulderright
+  rotate: false
+  xy: 419, 89
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+images/weaponleft
+  rotate: true
+  xy: 248, 26
+  size: 41, 114
+  orig: 44, 114
+  offset: 2, 0
+  index: -1
+images/weaponright
+  rotate: true
+  xy: 419, 115
+  size: 56, 108
+  orig: 57, 109
+  offset: 0, 1
+  index: -1

@@ -1,0 +1,137 @@
+{
+  "BlankCardPower": {
+    "NAME": "Blank Card",
+    "DESCRIPTIONS": [
+      "Play",
+      "unspecified card(s) at the start of each turn."
+    ]
+  },
+  "DecreaseDamagePower": {
+    "NAME": "Damage Reduction Buff",
+    "DESCRIPTIONS": [
+      "Each attack increases damage reduction by (1%) for the current turn, only take",
+      "% damage this turn. (Minimum 50%)"
+    ]
+  },
+  "chaofeng": {
+    "NAME": "Taunt",
+    "DESCRIPTIONS": [
+      "Will be prioritized for attacks for the next",
+      "turn(s)."
+    ]
+  },
+  "DoctorFetusPower": {
+    "NAME": "Doctor Fetus",
+    "DESCRIPTIONS": [
+      "Gain",
+      "Bomb(s) of Quick Explosive Bomb at the start of each turn."
+    ]
+  },
+  "ElectroPower": {
+    "NAME": "Electric Cave",
+    "DESCRIPTIONS": [
+      "Lightning ball will attack all enemies. If there is only one enemy, the lightning ball will attack",
+      "times."
+    ]
+  },
+  "EpicFetusPower": {
+    "NAME": "Epic Fetus",
+    "DESCRIPTIONS": [
+      "Gain",
+      "Epic Attack(s) at the start of each turn."
+    ]
+  },
+  "LonelyPower": {
+    "NAME": "Lonely",
+    "DESCRIPTIONS": [
+      "When the room is empty except for yourself at the end of the turn, deal 666 damage to yourself."
+    ]
+  },
+  "NineLifeCatPower": {
+    "NAME": "Nine Lives Cat Buff",
+    "DESCRIPTIONS": [
+      "Nine Lives Cat: 'Meow~ You still have",
+      "lives.'"
+    ]
+  },
+  "PowerDownPower": {
+    "NAME": "Exhaustion",
+    "DESCRIPTIONS": [
+      "Every 3 turns, all buffs are lost at the start of the turn. (Some robot abilities are immune)"
+    ]
+  },
+  "ShuaLaiPower": {
+    "NAME": "Shirk",
+    "DESCRIPTIONS": [
+      "50% chance to nullify incoming attacks."
+    ]
+  },
+  "GuppysCollarPower": {
+    "NAME": "Guppy's Collar Buff",
+    "DESCRIPTIONS": [
+      "When dead, 60% chance to revive with 1 health."
+    ]
+  },
+  "UpPower": {
+    "NAME": "Raised",
+    "DESCRIPTIONS": [
+      "Take",
+      "% extra damage."
+    ]
+  },
+  "DownPower": {
+    "NAME": "Lowered",
+    "DESCRIPTIONS": [
+      "Take no damage."
+    ]
+  },
+  "ConceitedPower": {
+    "NAME": "Conceited",
+    "DESCRIPTIONS": [
+      "You think you can defeat cute enemies without using your full strength."
+    ]
+  },
+  "MoreDamagePower": {
+    "NAME": "Hit Me!",
+    "DESCRIPTIONS": [
+      "Armor-piercing damage is increased by",
+      "times."
+    ]
+  },
+  "JudasShadowPower": {
+    "NAME": "Judas' Shadow",
+    "DESCRIPTIONS": [
+      "You can revive as Judas' Shadow."
+    ]
+  },
+  "MonstroPower": {
+    "NAME": "Cute Stab",
+    "DESCRIPTIONS": [
+      "Every 3 times you are attacked, lose 1 Strength for the rest of the turn."
+    ]
+  },
+  "DeliriousPower": {
+    "NAME": "Delirious",
+    "DESCRIPTIONS": [
+      "After being attacked",
+      "times, immediately take an action based on the current intent, and apply one layer of 'Self-harm' to yourself. After losing",
+      "HP, being attacked again",
+      "times will randomly transform you into another monster."
+    ]
+  },
+  "ImpatiencePower": {
+    "NAME": "Impatience",
+    "DESCRIPTIONS": [
+      "After playing",
+      "cards, immediately take an action based on the current intent. Can be reset by the Delirious buff."
+    ]
+  },
+  "DamageSelf": {
+    "NAME": "Self-harm",
+    "DESCRIPTIONS": [
+      "After accumulating",
+      "layer(s), deal",
+      "damage to yourself."
+    ]
+  }
+}
