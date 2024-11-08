@@ -104,7 +104,7 @@ private int count=0;
                 break;
             case 3:
                 AbstractDungeon.effectList.add(new SpeechBubble(this.hb.cX + this.dialogX, this.hb.cY + this.dialogY, 2.5F," 我的启动无人能及！", false));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new RitualPower(this,2, false)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new RitualPower(this,4, false)));
                 switch (count)
                 {
                     case 1:
