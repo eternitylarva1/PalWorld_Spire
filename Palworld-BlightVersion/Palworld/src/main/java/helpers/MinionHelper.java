@@ -29,6 +29,13 @@ public class MinionHelper {
     public static void changeMaxMinionAmount(AbstractPlayer player, int newMax) {
         PlayerAddFieldsPatch.f_maxMinions.set(player, newMax);
     }
+    public static AbstractMonster getRandomAliveMinionMonsters() {
+        AbstractMonster m= getMinionMonsters().get(AbstractDungeon.cardRandomRng.random(getMinions().monsters.size()-1));
+        while(m.isDeadOrEscaped()){
+            m= getMinionMonsters().get(AbstractDungeon.cardRandomRng.random(getMinions().monsters.size()-1));
+        }
+        return m;
+    }
 
     public static int getaliveMinions()
     {

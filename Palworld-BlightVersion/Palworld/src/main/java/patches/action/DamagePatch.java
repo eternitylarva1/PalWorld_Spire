@@ -19,16 +19,21 @@ import utils.Invoker;
     public class DamagePatch {
 
         @SpireInsertPatch(
-                loc = 91
+                rloc = 1
         )
         public static void Insert(DamageAction damageAction,DamageInfo ___info) {
-            System.out.println("正在检测");
-            if(MinionHelper.getMinions().monsters.contains(___info.owner)){
+            if(___info.owner!=null&&MinionHelper.getMinions().monsters.contains(___info.owner)){
                 System.out.println("正在攻击"+damageAction.target.name+"目前血量为"+damageAction.target.currentHealth);
                 if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){
-                    System.out.println("成功更改死亡目标");
-                    damageAction.target=AbstractDungeon.getRandomMonster();}
 
+                    damageAction.target=AbstractDungeon.getRandomMonster();
+                    damageAction.target.damage(___info);}
+
+            }else if(___info.owner!=null&&AbstractDungeon.getMonsters().monsters.contains(___info.owner)){
+                if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){
+
+                    damageAction.target=AbstractDungeon.getRandomMonster();
+                    damageAction.target.damage(___info);}
             }
         }
 
