@@ -27,7 +27,9 @@ import utils.Invoker;
                 if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){
 
                     damageAction.target=AbstractDungeon.getRandomMonster();
-                    damageAction.target.damage(___info);}
+                    if(damageAction.target!=null) {
+                        damageAction.target.damage(___info);
+                    }}
 
             }else if(___info.owner!=null&&AbstractDungeon.getMonsters().monsters.contains(___info.owner)){
                 if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){

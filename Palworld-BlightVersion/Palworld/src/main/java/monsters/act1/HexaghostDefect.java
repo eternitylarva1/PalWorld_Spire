@@ -373,7 +373,7 @@ public class HexaghostDefect extends AbstractMonster {
 
     static {
         monsterStrings = CardCrawlGame.languagePack.getMonsterStrings("Hexaghost");
-        NAME = monsterStrings.NAME;
+        NAME = "六机亡魂";
         MOVES = monsterStrings.MOVES;
         DIALOG = monsterStrings.DIALOG;
         STRENGTHEN_NAME = MOVES[0];
