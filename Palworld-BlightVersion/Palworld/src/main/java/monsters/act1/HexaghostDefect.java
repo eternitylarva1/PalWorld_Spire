@@ -50,7 +50,7 @@ public class HexaghostDefect extends AbstractMonster {
     public static final String NAME;
     public static final String[] MOVES;
     public static final String[] DIALOG;
-    public static final String IMAGE = "images/monsters/theBottom/boss/ghost/core.png";
+    public static final String IMAGE = "images/monsters/theBottom/boss/ghost/core1.png";
     private static final int HP = 250;
     private static final int A_2_HP = 264;
     private ArrayList<HexaghostOrb1> orbs = new ArrayList();
@@ -89,7 +89,7 @@ public class HexaghostDefect extends AbstractMonster {
     private HexaghostBody body;
 
     public HexaghostDefect() {
-        super(NAME, "Hexaghost", 250, 20.0F, 0.0F, 450.0F, 450.0F, "images/monsters/theBottom/boss/ghost/core.png");
+        super(NAME, "Hexaghost", 250, 20.0F, 0.0F, 450.0F, 450.0F, "images/monsters/theBottom/boss/ghost/core1.png");
         this.type = EnemyType.BOSS;
         this.body = new HexaghostBody(this);
         this.disposables.add(this.body);
