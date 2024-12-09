@@ -27,7 +27,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.HexaghostBody;
 
 import com.megacrit.cardcrawl.powers.FireBreathingPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.DataDisk;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
@@ -179,7 +181,8 @@ public class HexaghostDefect extends AbstractMonster {
             case 3:
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new InflameEffect(this), 0.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.strengthenBlockAmt));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, this.strAmount), this.strAmount));
+
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FocusPower(this, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Activate Orb"));
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
                 break;

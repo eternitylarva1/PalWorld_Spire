@@ -30,6 +30,7 @@ import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.GhostlyFireEffect;
 import com.megacrit.cardcrawl.vfx.GhostlyWeakFireEffect;
@@ -244,6 +245,9 @@ if(!MinionHelper.getMinions().monsters.contains(this)){
     public void update(float oX, float oY) {
         if (!this.hidden) {
             if (this.activated) {
+                if(this.owner.hasPower(FocusPower.POWER_ID)){
+                 this.passiveAmount=this.basePassiveAmount+this.owner.getPower(FocusPower.POWER_ID).amount;
+                }
                 this.activateTimer -= Gdx.graphics.getDeltaTime();
                 if (this.activateTimer < 0.0F) {
                     if (!this.playedSfx) {
