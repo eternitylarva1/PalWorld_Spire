@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -53,17 +54,17 @@ public class HexaghostOrb1 extends AbstractOrb {
     private float y;
     private float particleTimer = 0.0F;
     private static final float PARTICLE_INTERVAL = 0.06F;
-
+    private static  HexaghostDefect owner;
     float ox=0;
     float oy=0;
-    public HexaghostOrb1(float x, float y, int index) {
+    public HexaghostOrb1(float x, float y, int index,HexaghostDefect owner) {
         this.x = x * Settings.scale + MathUtils.random(-10.0F, 10.0F) * Settings.scale;
         this.y = y * Settings.scale + MathUtils.random(-10.0F, 10.0F) * Settings.scale;
         this.activateTimer = (float)index * 0.3F;
         this.color = Color.CHARTREUSE.cpy();
         this.color.a = 0.0F;
         this.hidden = false;
-
+        this.owner=owner;
         this.img = ImageMaster.ORB_LIGHTNING;
         this.baseEvokeAmount = 8;
         this.evokeAmount = this.baseEvokeAmount;
@@ -81,18 +82,38 @@ public class HexaghostOrb1 extends AbstractOrb {
         this.hidden = false;
     }
     public void onEndOfTurn() {
-        AbstractCreature m =MinionHelper.getMinions().monsters.get(AbstractDungeon.cardRandomRng.random(MinionHelper.getMinions().monsters.size()-1));
-        if (m != null) {
+        if(this.activated) {
+            if (!MinionHelper.getMinions().monsters.contains(this)) {
+                AbstractCreature m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
+                if (m != null) {
 
-            float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
-            if (Settings.FAST_MODE) {
-                speedTime = 0.0F;
+                    float speedTime = 0.2F / (float) AbstractDungeon.player.orbs.size();
+                    if (Settings.FAST_MODE) {
+                        speedTime = 0.0F;
+                    }
+                    AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+                    AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
+                    AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+                    AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+
+                }
+            } else {
+                if (MinionHelper.getaliveMinions() > 0) {
+                    AbstractCreature m = MinionHelper.getMinions().monsters.get(AbstractDungeon.cardRandomRng.random(MinionHelper.getMinions().monsters.size() - 1));
+                    if (m != null) {
+
+                        float speedTime = 0.2F / (float) AbstractDungeon.player.orbs.size();
+                        if (Settings.FAST_MODE) {
+                            speedTime = 0.0F;
+                        }
+                        AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
+                        AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+
+                    }
+                }
             }
-            AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
-            AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
-            AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
-            AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
-
         }
     }
     public void deactivate() {
@@ -115,17 +136,21 @@ public class HexaghostOrb1 extends AbstractOrb {
 
             AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), 0.0F));
 
-if(MinionHelper.getMinions().monsters.contains(this)){
+if(!MinionHelper.getMinions().monsters.contains(this)){
     AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), false));
 }else {
-    Iterator var5 = MinionHelper.getMinions().monsters.iterator();
-    while(var5.hasNext()) {
-        AbstractMonster m3 = (AbstractMonster)var5.next();
-        if (!m3.isDeadOrEscaped() && !m3.halfDead) {
-            AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m3.drawX, m3.drawY), 0.0F));
-   m3.damage(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS));
+    if(MinionHelper.getaliveMinions()>0){}
+    {
+        Iterator var5 = MinionHelper.getMinions().monsters.iterator();
+        while (var5.hasNext()) {
+            AbstractMonster m3 = (AbstractMonster) var5.next();
+            if (!m3.isDeadOrEscaped() && !m3.halfDead) {
+                AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m3.drawX, m3.drawY), 0.0F));
+                m3.damage(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS));
+            }
         }
     }
+    this.deactivate();
 
 }
     }
@@ -195,8 +220,9 @@ if(MinionHelper.getMinions().monsters.contains(this)){
 
             sb.setBlendFunction(770, 771);
             sb.setColor(this.c);
-            this.renderText(sb);
-            this.hb.render(sb);
+                   FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.passiveAmount), this.x + ox + this.effect.y * 2.0F - 48F + NUM_X_OFFSET, this.y + oy + this.effect.y * 2.0F - 48F+ this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
+
+                   this.hb.render(sb);
         }
 
     }

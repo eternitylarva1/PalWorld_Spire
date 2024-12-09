@@ -134,28 +134,17 @@ public class HexaghostDefect extends AbstractMonster {
     }
 
     private void createOrbs() {
-        this.orbs.add(new HexaghostOrb1(-90.0F, 380.0F, this.orbs.size()));
-        this.orbs.add(new HexaghostOrb1(90.0F, 380.0F, this.orbs.size()));
-        this.orbs.add(new HexaghostOrb1(160.0F, 250.0F, this.orbs.size()));
-        this.orbs.add(new HexaghostOrb1(90.0F, 120.0F, this.orbs.size()));
-        this.orbs.add(new HexaghostOrb1(-90.0F, 120.0F, this.orbs.size()));
-        this.orbs.add(new HexaghostOrb1(-160.0F, 250.0F, this.orbs.size()));
+        this.orbs.add(new HexaghostOrb1(-90.0F, 380.0F, this.orbs.size(),this));
+        this.orbs.add(new HexaghostOrb1(90.0F, 380.0F, this.orbs.size(),this));
+        this.orbs.add(new HexaghostOrb1(160.0F, 250.0F, this.orbs.size(),this));
+        this.orbs.add(new HexaghostOrb1(90.0F, 120.0F, this.orbs.size(),this));
+        this.orbs.add(new HexaghostOrb1(-90.0F, 120.0F, this.orbs.size(),this));
+        this.orbs.add(new HexaghostOrb1(-160.0F, 250.0F, this.orbs.size(),this));
 
     }
 
     public void takeTurn() {
-        this.addToTop(new AbstractGameAction() {
-            @Override
-            public void update() {
 
-                for (HexaghostOrb1 orb : orbs) {
-                    if(orb.activated){
-                        orb.onEndOfTurn();
-                    }
-                }
-                isDone=true;
-            }
-        });
         switch (this.nextMove) {
 
             case 1:
@@ -211,7 +200,7 @@ public class HexaghostDefect extends AbstractMonster {
                 int d = AbstractDungeon.player.currentHealth / 12 + 1;
                 ((DamageInfo)this.damage.get(2)).base = d;
                 this.applyPowers();
-                this.setMove((byte)1, Intent.ATTACK, ((DamageInfo)this.damage.get(2)).base, 6, true);
+                this.setMove((byte)1, Intent.ATTACK, 8, 6, true);
                 break;
             case 6:
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new ScreenOnFireEffect(), 1.0F));
@@ -243,7 +232,18 @@ public class HexaghostDefect extends AbstractMonster {
             default:
                 logger.info("ERROR: Default Take Turn was called on " + this.name);
         }
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
 
+                for (HexaghostOrb1 orb : orbs) {
+                    if(orb.activated){
+                        orb.onEndOfTurn();
+                    }
+                }
+                isDone=true;
+            }
+        });
 
 
 
