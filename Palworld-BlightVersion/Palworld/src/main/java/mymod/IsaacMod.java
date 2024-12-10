@@ -34,6 +34,7 @@ import com.megacrit.cardcrawl.monsters.exordium.GremlinTsundere;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import monsters.act1.GremlinTsundere1;
+import monsters.act1.HexaghostDefect;
 import monsters.act1.HexaghostEVEPLUS;
 import monsters.act2.SphericGuardianEVE;
 import monsters.act3.Cultist13;
@@ -392,6 +393,8 @@ public class IsaacMod implements EditCardsSubscriber, EditRelicsSubscriber, Post
         // 注册怪物组合，你可以多添加几个怪物
         BaseMod.addMonster("PalMod:GiantHead", Cultist13.NAME, () -> new Cultist13(0.0F, 0.0F));
         BaseMod.addMonster("PalMod:HexaghostEVEPLUS", HexaghostEVEPLUS.NAME, () -> new HexaghostEVEPLUS());
+        BaseMod.addMonster("PalMod:HexaghostDefect", HexaghostDefect.NAME, () -> new HexaghostDefect());
+
         BaseMod.addMonster("PalMod:SphericGuardianEVE_and_Gremlin", SphericGuardianEVE.NAME, () -> new MonsterGroup(new AbstractMonster[] { new GremlinTsundere(-80.0F, MathUtils.random(25.0F, 70.0F)), new SphericGuardianEVE(200.0F, MathUtils.random(25.0F, 70.0F)) }));
         // 两个异鸟
         // BaseMod.addMonster("ExampleMod:2 Byrds", "", () -> new MonsterGroup(new AbstractMonster[] { new Byrd(-80.0F, MathUtils.random(25.0F, 70.0F)), new Byrd(200.0F, MathUtils.random(25.0F, 70.0F)) }));
@@ -401,6 +404,8 @@ public class IsaacMod implements EditCardsSubscriber, EditRelicsSubscriber, Post
 
         BaseMod.addEliteEncounter("TheBeyond", new MonsterInfo("PalMod:GiantHead", 1.0F));
         BaseMod.addMonsterEncounter(TheEnding.ID, new MonsterInfo("PalMod:SphericGuardianEVE_and_Gremlin", 1.0F));
+        BaseMod.addMonsterEncounter(TheBeyond.ID, new MonsterInfo("PalMod:HexaghostDefect", 1.0F));
+
 
     }
     @Override

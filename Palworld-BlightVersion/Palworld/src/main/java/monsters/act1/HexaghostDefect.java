@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.HexaghostBody;
 
+import com.megacrit.cardcrawl.powers.ElectroPower;
 import com.megacrit.cardcrawl.powers.FireBreathingPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -163,9 +164,12 @@ public class HexaghostDefect extends AbstractMonster {
                       @Override
                       public void update() {
                           orbs.get(finalI).onEvoke();
+                          orbs.get(finalI).isActivating=false;
                           isDone=true;
+
                       }
-                  });                }
+                  });
+                }
 
                 AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Deactivate"));
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
@@ -173,8 +177,8 @@ public class HexaghostDefect extends AbstractMonster {
             case 2:
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.CHARTREUSE)));
                 AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AttackEffect.FIRE));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AttackEffect.FIRE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ElectroPower(this), -1));
+                AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Activate Orb"));
                 AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Activate Orb"));
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
                 break;
@@ -182,8 +186,8 @@ public class HexaghostDefect extends AbstractMonster {
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new InflameEffect(this), 0.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.strengthenBlockAmt));
 
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FocusPower(this, 1), 1));
-                AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Activate Orb"));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FocusPower(this, 4), 4));
+
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
                 break;
             case 4:
@@ -203,34 +207,38 @@ public class HexaghostDefect extends AbstractMonster {
                 int d = AbstractDungeon.player.currentHealth / 12 + 1;
                 ((DamageInfo)this.damage.get(2)).base = d;
                 this.applyPowers();
-                this.setMove((byte)1, Intent.ATTACK, 8, 6, true);
+                this.setMove("裂变",(byte)1, Intent.UNKNOWN, 8, 6, true);
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        for (HexaghostOrb1 orb : HexaghostDefect. this.orbs) {
+                            orb.isActivating=true;
+                        }
+                        isDone=true;
+
+                    }
+                });
+
+
                 break;
             case 6:
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new ScreenOnFireEffect(), 1.0F));
-
-                for(int i = 0; i < this.infernoHits; ++i) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(3), AttackEffect.FIRE));
-                }
-
-                AbstractDungeon.actionManager.addToBottom(new BurnIncreaseAction());
-                if (!this.burnUpgraded) {
-                    this.burnUpgraded = true;
-                }
-
-                AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Deactivate"));
                 this.addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
                         for (HexaghostOrb1 orb : orbs) {
                             if(orb.activated){
                                 orb.onEvoke();
+                                orb.isActivating=false;
                             }
                         }
+
                         isDone=true;
                     }
                 });
 
+                AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Deactivate"));
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+
                 break;
             default:
                 logger.info("ERROR: Default Take Turn was called on " + this.name);
@@ -255,14 +263,14 @@ public class HexaghostDefect extends AbstractMonster {
     protected void getMove(int num) {
         if (!this.activated) {
             this.activated = true;
-            this.setMove((byte)5, Intent.UNKNOWN);
+            this.setMove("暴风雨",(byte)5, Intent.UNKNOWN);
         } else {
             switch (this.orbActiveCount) {
                 case 0:
                     this.setMove(SEAR_NAME, (byte)4, Intent.ATTACK_DEBUFF, ((DamageInfo)this.damage.get(1)).base);
                     break;
                 case 1:
-                    this.setMove((byte)2, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, this.fireTackleCount, true);
+                    this.setMove("电动力学",(byte)2, Intent.BUFF, ((DamageInfo)this.damage.get(0)).base, this.fireTackleCount, true);
                     break;
                 case 2:
                     this.setMove(SEAR_NAME, (byte)4, Intent.ATTACK_DEBUFF, ((DamageInfo)this.damage.get(1)).base);
@@ -277,7 +285,10 @@ public class HexaghostDefect extends AbstractMonster {
                     this.setMove(SEAR_NAME, (byte)4, Intent.ATTACK_DEBUFF, ((DamageInfo)this.damage.get(1)).base);
                     break;
                 case 6:
-                    this.setMove(BURN_NAME, (byte)6, Intent.ATTACK_DEBUFF, ((DamageInfo)this.damage.get(3)).base, this.infernoHits, true);
+                    for (HexaghostOrb1 orb : this.orbs) {
+                        orb.isActivating=true;
+                    }
+                    this.setMove(BURN_NAME, (byte)6, Intent.UNKNOWN, ((DamageInfo)this.damage.get(3)).base, this.infernoHits, true);
             }
         }
 
@@ -379,9 +390,9 @@ public class HexaghostDefect extends AbstractMonster {
         NAME = "六机亡魂";
         MOVES = monsterStrings.MOVES;
         DIALOG = monsterStrings.DIALOG;
-        STRENGTHEN_NAME = MOVES[0];
-        SEAR_NAME = MOVES[1];
-        BURN_NAME = MOVES[2];
+        STRENGTHEN_NAME = "扩容耗尽两次";
+        SEAR_NAME = "球状闪电";
+        BURN_NAME = "裂变";
     }
 }
 

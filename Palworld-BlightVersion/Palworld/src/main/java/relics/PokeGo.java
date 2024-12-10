@@ -406,7 +406,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
                     SummonHelper.summonMinion(monster1);
                 }*/
                     break;
-                case "SpireGrowth":
+                case "Serpent":
                     monster = new SpireGrowth1();
                     break;
 

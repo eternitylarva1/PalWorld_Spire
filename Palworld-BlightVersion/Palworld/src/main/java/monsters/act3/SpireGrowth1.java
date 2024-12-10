@@ -26,6 +26,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import com.megacrit.cardcrawl.powers.ConstrictedPower;
 
+import static mymod.IsaacMod.config;
+
 public class SpireGrowth1 extends AbstractMonster {
     public static final String ID = "Serpent";
     private static final MonsterStrings monsterStrings;
@@ -97,11 +99,12 @@ public class SpireGrowth1 extends AbstractMonster {
     }
 
     protected void getMove(int num) {
-        if (AbstractDungeon.ascensionLevel >= 17 && !AbstractDungeon.player.hasPower("Constricted") && !this.lastMove((byte)2)) {
+        System.out.println("正在抽取意图");
+        if (AbstractDungeon.ascensionLevel >= 17 && !AbstractDungeon.player.hasPower("Constricted") && !this.lastMove((byte)2)&&!config.getBool("Douququ")) {
             this.setMove((byte)2, Intent.STRONG_DEBUFF);
         } else if (num < 50 && !this.lastTwoMoves((byte)1)) {
             this.setMove((byte)1, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base);
-        } else if (!AbstractDungeon.player.hasPower("Constricted") && !this.lastMove((byte)2)) {
+        } else if (!AbstractDungeon.player.hasPower("Constricted") && !this.lastMove((byte)2)&&!config.getBool("Douququ")) {
             this.setMove((byte)2, Intent.STRONG_DEBUFF);
         } else if (!this.lastTwoMoves((byte)3)) {
             this.setMove((byte)3, Intent.ATTACK, ((DamageInfo)this.damage.get(1)).base);
