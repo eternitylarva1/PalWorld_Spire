@@ -206,7 +206,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
             if (this.counter != 0 && this.monsterClass != null) {
                 if (clicknum % 2 == 0) {
                     PokeGo pg = get_pokego();
-                    AbstractMonster monster1m = InstanceMaker.getInstanceByClass(pg.monsterClass);
+                    AbstractMonster monster1m = getMonsterbycache(pg.monsterClass);
 
                     if (!Objects.equals(pp.monster2, monster1m.name)) {
                         pp.monster1 = monster1m.name;
@@ -221,7 +221,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
                 }
                 else {
                     PokeGo pg = get_pokego();
-                    AbstractMonster monster1m = InstanceMaker.getInstanceByClass(pg.monsterClass);
+                    AbstractMonster monster1m = getMonsterbycache(pg.monsterClass);
                     if (!Objects.equals(pp.monster1, monster1m.name)) {
                         pp.monster2 = monster1m.name;
                         pg.updateDescription();
@@ -289,9 +289,9 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
         String mode = "";
 
         if (this.monsterClass != null) {
-            am = InstanceMaker.getInstanceByClass(monsterClass);
+            am = getMonsterbycache(monsterClass);
             mode = getDescription(am.id);
-            AbstractMonster m = InstanceMaker.getInstanceByClass(monsterClass);
+            AbstractMonster m = getMonsterbycache(monsterClass);
 
             tips.clear();
             tips.add(new PowerTip(this.name, "当前帕鲁：" + m.name));
@@ -337,7 +337,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
     }
 
     public void summonPokego() {
-        am = InstanceMaker.getInstanceByClass(monsterClass);
+        am = getMonsterbycache(monsterClass);
         newPet = false;
         if (counter > 0 && monsterClass != null) {
 
