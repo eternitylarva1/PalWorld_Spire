@@ -115,7 +115,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
         this.chuzhan = false;
 
     }
-    public AbstractMonster getMonsterbycache(Class monsterClass){
+    public static AbstractMonster getMonsterbycache(Class monsterClass){
         if(PokeGocache.get(monsterClass)!=null){
             return PokeGocache.get(monsterClass);
         }else {
@@ -337,7 +337,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
     }
 
     public void summonPokego() {
-        am = getMonsterbycache(monsterClass);
+        am =InstanceMaker.getInstanceByClass(monsterClass);
         newPet = false;
         if (counter > 0 && monsterClass != null) {
 
@@ -348,8 +348,9 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
             switch (am.id) {
 
                 case "Hexaghost":
-                    if(!config.getBool("Douququ"))
-                    monster = new Hexaghost1();
+                    if(!config.getBool("Douququ")) {
+                        monster = new Hexaghost1();
+                    }
                     break;
                 //case"Cultist":monster=new Cultist(0,0);
                 // break;

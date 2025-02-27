@@ -19,6 +19,7 @@ import relics.D4;
 import relics.PokeGo;
 import utils.InstanceMaker;
 
+import static relics.PokeGo.getMonsterbycache;
 import static relics.PokeGophone.technology;
 
 public class PokeGOGO extends CustomCard {
@@ -37,7 +38,7 @@ public class PokeGOGO extends CustomCard {
         this.isEthereal = true;
         this.pokeGo = pokeGo;
         if(pokeGo.monsterClass!=null) {
-            AbstractMonster ad = InstanceMaker.getInstanceByClass(pokeGo.monsterClass);
+            AbstractMonster ad = getMonsterbycache(pokeGo.monsterClass);
             rawDescription = "召唤" + ad.name;
 
             initializeDescription();
@@ -68,7 +69,7 @@ public class PokeGOGO extends CustomCard {
         if(pokeGo.monsterClass!=null&&pokeGo.counter>0) {
             pokeGo.summonPokego();
 
-            AbstractMonster am1 = InstanceMaker.getInstanceByClass(pokeGo.monsterClass);
+            AbstractMonster am1 = getMonsterbycache(pokeGo.monsterClass);
             if (am1.id.contains("downfall")) {
                 AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
             }
