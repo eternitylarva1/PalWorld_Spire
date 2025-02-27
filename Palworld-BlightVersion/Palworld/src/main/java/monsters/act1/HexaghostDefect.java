@@ -188,7 +188,7 @@ public class HexaghostDefect extends AbstractMonster {
 
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FocusPower(this, 4), 4));
 
-                AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+                this.setMove((byte)7, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, this.fireTackleCount, true);
                 break;
             case 4:
                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new FireballEffect(this.hb.cX, this.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.5F));
@@ -240,6 +240,14 @@ public class HexaghostDefect extends AbstractMonster {
                 AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
 
                 break;
+            case 7:
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.CHARTREUSE)));
+                AbstractDungeon.actionManager.addToBottom(new AnimateSlowAttackAction(this));
+                AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "Activate Orb"));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AttackEffect.FIRE));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, (DamageInfo)this.damage.get(0), AttackEffect.FIRE));
+                AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
+                break;
             default:
                 logger.info("ERROR: Default Take Turn was called on " + this.name);
         }
@@ -279,7 +287,7 @@ public class HexaghostDefect extends AbstractMonster {
                     this.setMove(STRENGTHEN_NAME, (byte)3, Intent.DEFEND_BUFF);
                     break;
                 case 4:
-                    this.setMove((byte)2, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, this.fireTackleCount, true);
+                    this.setMove((byte)7, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base, this.fireTackleCount, true);
                     break;
                 case 5:
                     this.setMove(SEAR_NAME, (byte)4, Intent.ATTACK_DEBUFF, ((DamageInfo)this.damage.get(1)).base);

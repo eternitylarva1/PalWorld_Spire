@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbPassiveAction;
@@ -37,6 +38,7 @@ import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.GhostlyFireEffect;
 import com.megacrit.cardcrawl.vfx.GhostlyWeakFireEffect;
 import com.megacrit.cardcrawl.vfx.combat.*;
+import evepower.DamageAllEnemiesAction1;
 import helpers.MinionHelper;
 import org.lwjgl.Sys;
 
@@ -88,7 +90,7 @@ public class HexaghostOrb1 extends AbstractOrb {
     }
     public void onEndOfTurn() {
         if(this.activated) {
-            if (MinionHelper.getMinions().monsters.contains(this)) {
+            if (MinionHelper.getMinions().monsters.contains(this.owner)) {
                 AbstractCreature m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
                 if (m != null) {
 
@@ -96,11 +98,25 @@ public class HexaghostOrb1 extends AbstractOrb {
                     if (Settings.FAST_MODE) {
                         speedTime = 0.0F;
                     }
-                    AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
-                    AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
-                    AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
-                    AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+                    if(this.owner.hasPower(ElectroPower.POWER_ID)){
+                        AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.passiveAmount, true, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
+                        Iterator var5 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
+                        while(var5.hasNext()) {
+                            AbstractMonster m3 = (AbstractMonster)var5.next();
+                            if (!m3.isDeadOrEscaped() && !m3.halfDead) {
+                                AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m3.drawX, m3.drawY), speedTime));
+                            }
+                        }
+
+                        AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+
+                    }else {
+                        AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
+                        AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+                    }
                 }
             } else {
                 if (MinionHelper.getaliveMinions() > 0) {
@@ -112,6 +128,7 @@ public class HexaghostOrb1 extends AbstractOrb {
                             speedTime = 0.0F;
                         }
                         if(this.owner.hasPower(ElectroPower.POWER_ID)){
+                            AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction1(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.passiveAmount, true, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
                             Iterator var5 = MinionHelper.getMinions().monsters.iterator();
 
                             while(var5.hasNext()) {
@@ -119,13 +136,11 @@ public class HexaghostOrb1 extends AbstractOrb {
                                 if (!m3.isDeadOrEscaped() && !m3.halfDead) {
                                     AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m3.drawX, m3.drawY), speedTime));
                                 }
-                                AbstractDungeon.actionManager.addToTop(new DamageAction(m3, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
-                                AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
-                                AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
                             }
 
-                        }
+                            AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
 
+                        }
                         else {
                             AbstractDungeon.actionManager.addToTop(new DamageAction(m, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
                             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), speedTime));
@@ -133,6 +148,12 @@ public class HexaghostOrb1 extends AbstractOrb {
                             AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
                         }
                     }
+                }
+                else{
+                    AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, new DamageInfo(this.owner, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+                    AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY), 0.0F));
+                    AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+                    AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), 0.0F));
                 }
             }
         }
@@ -157,7 +178,7 @@ public class HexaghostOrb1 extends AbstractOrb {
 
             AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), 0.0F));
 
-if(MinionHelper.getMinions().monsters.contains(this)){
+if(MinionHelper.getMinions().monsters.contains(this.owner)){
     AbstractDungeon.actionManager.addToTop(new LightningOrbEvokeAction(new DamageInfo(AbstractDungeon.player, this.evokeAmount, DamageInfo.DamageType.THORNS), this.owner.hasPower(ElectroPower.POWER_ID)));
     this.deactivate();
 }else {
@@ -169,18 +190,17 @@ if(MinionHelper.getMinions().monsters.contains(this)){
             if (m != null) {
                 float speedTime = 0.1F ;
                 if(this.owner.hasPower(ElectroPower.POWER_ID)){
-                    Iterator var5 =  MinionHelper.getMinions().monsters.iterator();
+                    AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction1(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.evokeAmount, true, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
+                    Iterator var5 = MinionHelper.getMinions().monsters.iterator();
 
                     while(var5.hasNext()) {
                         AbstractMonster m3 = (AbstractMonster)var5.next();
                         if (!m3.isDeadOrEscaped() && !m3.halfDead) {
                             AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(m3.drawX, m3.drawY), speedTime));
                         }
-                        AbstractDungeon.actionManager.addToTop(new DamageAction(m3, new DamageInfo(this.owner, this.evokeAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
-                        AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
-                        AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
                     }
 
+                    AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
                 }
 
 else {
@@ -200,6 +220,15 @@ else {
 
             }
         }
+    }
+    else {
+        float speedTime = 0.1F ;
+
+        AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, new DamageInfo(this.owner, this.evokeAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new LightningEffect(AbstractDungeon.player.drawX, AbstractDungeon.player.drawY), speedTime));
+        AbstractDungeon.actionManager.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+
     }
     this.deactivate();
 

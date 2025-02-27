@@ -22,7 +22,7 @@ import utils.Invoker;
                 rloc = 1
         )
         public static void Insert(DamageAction damageAction,DamageInfo ___info) {
-            if(___info.owner!=null&&MinionHelper.getMinions().monsters.contains(___info.owner)){
+            if(___info.owner!=null&&MinionHelper.getMinions().monsters.contains(___info.owner)&&damageAction.target!=null){
                 System.out.println("正在攻击"+damageAction.target.name+"目前血量为"+damageAction.target.currentHealth);
                 if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){
 
@@ -33,9 +33,10 @@ import utils.Invoker;
 
             }else if(___info.owner!=null&&AbstractDungeon.getMonsters().monsters.contains(___info.owner)){
                 if(damageAction.target.isDeadOrEscaped()||damageAction.target.isDying||damageAction.target.currentHealth<=0){
-
-                    damageAction.target=AbstractDungeon.getRandomMonster();
-                    damageAction.target.damage(___info);}
+                    if(MinionHelper.getaliveMinions()>0) {
+                        damageAction.target = MinionHelper.getRandomAliveMinionMonsters();
+                        damageAction.target.damage(___info);
+                    }}
             }
         }
 
