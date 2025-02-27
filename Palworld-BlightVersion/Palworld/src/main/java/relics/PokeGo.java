@@ -40,6 +40,8 @@ import relics.lineTwo.InfoBlight;
 import utils.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import static Option.get_pokego.get_pokego;
@@ -84,7 +86,7 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
     private int lastPetHp = -1;
     private boolean getCard = true;
 
-
+    public static Map< Class,AbstractMonster> PokeGocache=new HashMap<>();
     public PokeGo() {
         this(slotNum % 9);
     }
@@ -113,12 +115,20 @@ public class PokeGo extends ClickableRelic implements CustomSavable<PokeGoSave> 
         this.chuzhan = false;
 
     }
+    public AbstractMonster getMonsterbycache(Class monsterClass){
+        if(PokeGocache.get(monsterClass)!=null){
+            return PokeGocache.get(monsterClass);
+        }else {
+            PokeGocache.put(monsterClass,InstanceMaker.getInstanceByClass(monsterClass));
+            return PokeGocache.get(monsterClass);
+        }
+    }
 
     @Override
     public void onEnterRoom(AbstractRoom room) {
         this.workcount=0;
         if (this.monsterClass != null && this.counter != 0) {
-            am = InstanceMaker.getInstanceByClass(monsterClass);
+           am=getMonsterbycache(monsterClass);
             switch (am.id) {
                 case "JawWorm":
                     if (this.counter >= 300) {
