@@ -45,7 +45,9 @@ import relics.*;
 import relics.PokeGo;
 import relics.PokeGophone;
 import relics.lineTwo.InfoBlight;
+import screen.BreedScreen;
 import screen.RelicSelectScreen;
+import ui.BreedsearchButton;
 import utils.Utils;
 
 import java.io.*;
@@ -413,7 +415,8 @@ public class IsaacMod implements EditCardsSubscriber, EditRelicsSubscriber, Post
         receiveEditMonsters();
         ModPanel settingsPanel = new ModPanel();
         //settingsPanel.addUIElement(buttonLabel);
-
+        BaseMod.addCustomScreen(new BreedScreen());
+        BaseMod.addTopPanelItem(new BreedsearchButton());
         Consumer<ModToggleButton> clickAction = (button) -> {
             config.setBool("Background",button.enabled);
             System.out.println("已经将替换背景设置为！"+button.enabled);

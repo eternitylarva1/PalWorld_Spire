@@ -17,8 +17,7 @@ import relics.PokeGo;
 import utils.InstanceMaker;
 import utils.randommonster;
 
-import static Option.get_pokego.canwork_pokego;
-import static Option.get_pokego.get_blank_pokego;
+import static Option.get_pokego.*;
 import static com.megacrit.cardcrawl.helpers.ImageMaster.loadImage;
 
 public class peizhong extends AbstractCampfireOption {
@@ -36,7 +35,7 @@ public class peizhong extends AbstractCampfireOption {
         this.label = TEXT[0];
 
 
-        this.usable =canwork_pokego()>=2;
+        this.usable = canbreed_pokego()>=2;
         if(this.usable)
         {
             if(get_blank_pokego(0)!=null)

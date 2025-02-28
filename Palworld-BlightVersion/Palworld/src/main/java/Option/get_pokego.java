@@ -32,7 +32,12 @@ public class get_pokego {
         return (int) InfoBlight.getAllRelics(PokeGo.class).stream()
                 .filter(pokeGo -> pokeGo.monsterClass != null && pokeGo.counter != 0 && !pokeGo.hasworked).count();
     }
+    public static int canbreed_pokego() {
 
+
+        return (int) InfoBlight.getAllRelics(PokeGo.class).stream()
+                .filter(pokeGo -> pokeGo.monsterClass != null && pokeGo.counter != 0).count();
+    }
     public static PokeGo getfirstcanwork_pokego() {
         list.clear();
         InfoBlight.getAllRelics(PokeGo.class).forEach(pokeGo -> {
