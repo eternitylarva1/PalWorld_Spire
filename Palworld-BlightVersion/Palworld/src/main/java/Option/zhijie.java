@@ -55,7 +55,7 @@ public class zhijie extends AbstractCampfireOption {
                 if(Objects.requireNonNull(relic(dingwei)).counter>0){
                     pg1= get_pokego.relic(dingwei);
                 }
-                monster1m= InstanceMaker.getInstanceByClass(pg1.monsterClass);
+                monster1m= PokeGo.getMonsterbycache(pg1.monsterClass);
                 monster1=monster1m.name;
                 System.out.println(monster1);
 

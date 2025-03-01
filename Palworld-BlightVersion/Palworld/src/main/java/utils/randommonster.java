@@ -173,10 +173,6 @@ public class randommonster {
             case 6:
                 return new SlaverRed(0.0F, 0.0F);
             case 7:
-                if (AbstractDungeon.miscRng.randomBoolean()) {
-                    return new AcidSlime_L(0.0F, 0.0F);
-                }
-
                 return new SpikeSlime_L(0.0F, 0.0F);
             case 8:
 

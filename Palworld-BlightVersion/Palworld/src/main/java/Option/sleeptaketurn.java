@@ -70,7 +70,7 @@ public class sleeptaketurn extends AbstractCampfireOption {
                 pgt=getfirstcanwork_pokego();
                 if(pgt!=null){
 
-                    monster1m = InstanceMaker.getInstanceByClass(pgt.monsterClass);
+                    monster1m = PokeGo.getMonsterbycache(pgt.monsterClass);
                     monster1 = monster1m.name;
                     int a= (int) (pgt.counter*0.2);
                     this.description = "让" + monster1+"休息，回复"+a+"生命";

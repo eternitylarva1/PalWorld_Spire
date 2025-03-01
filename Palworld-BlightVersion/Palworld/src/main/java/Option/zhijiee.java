@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 
 import relics.NineVolt;
+import relics.PokeGo;
 import utils.InstanceMaker;
 
 import java.util.Objects;
@@ -107,8 +108,8 @@ public class zhijiee extends AbstractGameEffect {
                     System.out.println("检测到空帕鲁球，开始选择父本母本");
                     p.pg1= get_pokego.get_pokego(0);
                     p.pg2= get_pokego.get_pokego(1);
-                    p.monster1m= InstanceMaker.getInstanceByClass(p.pg1.monsterClass);
-                    p.monster2m= InstanceMaker.getInstanceByClass(p.pg2.monsterClass);
+                    p.monster1m= PokeGo.getMonsterbycache(p.pg1.monsterClass);
+                    p.monster2m= PokeGo.getMonsterbycache(p.pg2.monsterClass);
                     p.monster1=p.monster1m.name;
                     p.monster2=p.monster2m.name;
                     p.updateUsability(p.usable);

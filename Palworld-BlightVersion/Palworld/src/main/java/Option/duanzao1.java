@@ -36,7 +36,7 @@ public class duanzao1 extends AbstractCampfireOption {
     public void updateUsability(boolean canUse) {
         if(canUse&&getfirstcanwork_pokego()!=null){
             pgt=getfirstcanwork_pokego();
-            AbstractMonster m = InstanceMaker.getInstanceByClass(pgt.monsterClass);
+            AbstractMonster m = PokeGo.getMonsterbycache(pgt.monsterClass);
             this.description = "命令"+m.name + "锻造,"+"还剩"+canwork_pokego()+"个没行动的帕鲁";
             this.img = img2;
         }

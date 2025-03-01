@@ -43,13 +43,13 @@ public class plant extends AbstractCampfireOption {
         if(!hasplant&&getfirstcanwork_pokego()!=null&&!planted){
 
             PokeGo pgt=getfirstcanwork_pokego();
-            AbstractMonster m = InstanceMaker.getInstanceByClass(pgt.monsterClass);
+            AbstractMonster m = PokeGo.getMonsterbycache(pgt.monsterClass);
             this.description = "命令"+m.name + "种田,下个火堆成熟";
             this.usable=true;
         }
         else if(!hasplant&&getfirstcanwork_pokego()!=null&&planted){
             PokeGo pgt=getfirstcanwork_pokego();
-            AbstractMonster m = InstanceMaker.getInstanceByClass(pgt.monsterClass);
+            AbstractMonster m = PokeGo.getMonsterbycache(pgt.monsterClass);
             this.description = "命令"+m.name + "收获";
             this.usable=true;
         }

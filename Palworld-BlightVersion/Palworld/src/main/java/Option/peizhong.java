@@ -43,8 +43,8 @@ public class peizhong extends AbstractCampfireOption {
                 System.out.println("检测到空帕鲁球，开始选择父本母本");
              pg1= get_pokego.get_pokego(0);
              pg2= get_pokego.get_pokego(1);
-            monster1m= InstanceMaker.getInstanceByClass(pg1.monsterClass);
-            monster2m= InstanceMaker.getInstanceByClass(pg2.monsterClass);
+            monster1m= PokeGo.getMonsterbycache(pg1.monsterClass);
+            monster2m= PokeGo.getMonsterbycache(pg2.monsterClass);
             monster1=monster1m.name;
             monster2=monster2m.name;
             System.out.println(monster1);
