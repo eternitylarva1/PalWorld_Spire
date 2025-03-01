@@ -24,8 +24,8 @@
     "UPGRADE_DESCRIPTION": "将自己护甲全部给予这个帕鲁，然后其获得 !M! 层残影"
   },
   "ChaoFengStrike": {
-    "NAME": "赌上你的灵魂",
-    "DESCRIPTION": "获得8点力量，你的角色变成故障机器人 ",
+    "NAME": "嘲讽打击",
+    "DESCRIPTION": " 造成 !D! 点伤害，并且施加3层嘲讽 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，并且施加3层嘲讽 "
   },
   "Baling": {
