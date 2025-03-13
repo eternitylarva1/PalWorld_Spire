@@ -74,6 +74,7 @@ public class PokeGophone extends ClickableRelic implements CustomSavable<PokeGop
     public static zhijie zj;
     public static plant pt;
     public static dig1 sh;
+    public static fudan fd;
     public int restcount = 0;
     AbstractMonster am;
     
@@ -122,14 +123,17 @@ public class PokeGophone extends ClickableRelic implements CustomSavable<PokeGop
     }
 
     public void addCampfireOption(ArrayList<AbstractCampfireOption> options) {
+
         sh = new dig1(true);
         dz = new duanzao1(true);
         zj = new zhijie(get_pokego.get_pokego(0) != null);
         p = new peizhong(true);
         pt = new plant(true);
         sl = new sleeptaketurn(true);
+        fd=new fudan(true);
         options.add(new sj1((AbstractDungeon.player.hasRelic(PokeBall_BluePrint.ID))?AbstractDungeon.player.gold >= 25 * this.counter:AbstractDungeon.player.gold >= 50 * this.counter));
         options.add(dz);
+        options.add(fd);
         options.add(new keyan(true));
         InfoBlight.getAllRelics(PokeGo.class).forEach(
                 pokeGo -> {
