@@ -31,6 +31,9 @@ import com.megacrit.cardcrawl.monsters.exordium.Cultist;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.FrozenEgg2;
+import com.megacrit.cardcrawl.relics.MoltenEgg2;
+import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -133,7 +136,9 @@ public class PokeGophone extends ClickableRelic implements CustomSavable<PokeGop
         fd=new fudan(true);
         options.add(new sj1((AbstractDungeon.player.hasRelic(PokeBall_BluePrint.ID))?AbstractDungeon.player.gold >= 25 * this.counter:AbstractDungeon.player.gold >= 50 * this.counter));
         options.add(dz);
-        options.add(fd);
+        if(AbstractDungeon.player.hasRelic(FrozenEgg2.ID)||AbstractDungeon.player.hasRelic(MoltenEgg2.ID)||AbstractDungeon.player.hasRelic(ToxicEgg2.ID)) {
+            options.add(fd);
+        }
         options.add(new keyan(true));
         InfoBlight.getAllRelics(PokeGo.class).forEach(
                 pokeGo -> {
