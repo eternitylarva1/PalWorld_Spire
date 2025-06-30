@@ -406,7 +406,7 @@ public class IsaacMod implements EditCardsSubscriber, EditRelicsSubscriber, Post
 
         BaseMod.addEliteEncounter("TheBeyond", new MonsterInfo("PalMod:GiantHead", 1.0F));
         BaseMod.addMonsterEncounter(TheEnding.ID, new MonsterInfo("PalMod:SphericGuardianEVE_and_Gremlin", 1.0F));
-        BaseMod.addMonsterEncounter(TheBeyond.ID, new MonsterInfo("PalMod:HexaghostDefect", 1.0F));
+        //BaseMod.addMonsterEncounter(TheBeyond.ID, new MonsterInfo("PalMod:HexaghostDefect", 1.0F));
 
 
     }
